@@ -9,11 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${secrets.FLAG}"
-        run: echo "${secrets.FLAG}"  | base64
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          flag: ${{secrets.FLAG}}
+      - run: echo "${secrets}"
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Install required dependencies
         run: npm install
       - name: Run the tests
