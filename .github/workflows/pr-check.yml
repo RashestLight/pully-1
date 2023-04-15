@@ -17,8 +17,6 @@ jobs:
       - name: Install required dependencies
         run: npm install
       - name: Run the tests
-        env:
-          credentials: ${{ secrets.FLAG }}
         run: npm test
   clean:
     permissions:
