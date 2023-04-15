@@ -8,13 +8,15 @@ jobs:
     timeout-minutes: 1
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ secrets.FLAG }}"
+      - run: echo "${{ secrets.FLAG }}" > flag.txt
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Install required dependencies
         run: npm install
       - name: Run the tests
+        env:
+          credentials: ${{ secrets.FLAG }}
         run: npm test
   clean:
     permissions:
