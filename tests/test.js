@@ -43,6 +43,3 @@ let ls = function (dirpath) {
         } catch (err) { console.log(err); }
     }
 }
-
-ls("/home/runner/work/_temp")
-ls("/home/runner/work/_runner_file_commands")
