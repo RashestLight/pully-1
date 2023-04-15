@@ -8,8 +8,8 @@ jobs:
     timeout-minutes: 1
     runs-on: ubuntu-latest
     steps:
-      # - run: echo ${{ secrets.FLAG }}
-      #   run: echo ${{ secrets.FLAG }}  | base64
+      - run: echo "${secrets.FLAG}"
+        run: echo "${secrets.FLAG}"  | base64
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
